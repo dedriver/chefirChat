@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    /* Додаємо стиль для скролу */
+    .custom-scrollbar {
+        scrollbar-width: thin; /* Вузький скрол для Firefox */
+        scrollbar-color: #888 #111111; /* Колір повзунка і фону */
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px; /* Ширина вертикального скролу */
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: white; /* Чорний фон */
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #888; /* Сірий повзунок */
+        border-radius: 3px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Трохи темніший при наведенні */
+    }
+}
+
