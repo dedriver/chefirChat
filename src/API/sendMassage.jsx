@@ -56,7 +56,8 @@ export const sendMessage = async (userId1, userId2, message) => {
             text: message.text,
             timestamp: serverTimestamp(),
             read: false,
-            name : message.name
+            name : message.name,
+            photoUrl : message.photoUrl
         });
 
         // Оновлюємо останнє повідомлення в чаті

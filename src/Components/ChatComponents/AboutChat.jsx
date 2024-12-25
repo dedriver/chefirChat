@@ -1,7 +1,7 @@
 import ChatBox from "./ChatBox.jsx";
 import {useSelector} from "react-redux";
 
-export default function AboutChat({ photo, name }) {
+export default function AboutChat({ photo, name , number}) {
     return (
         <div className='p-4 bg-[#101010] flex flex-col  '>
             <div className={'flex space-x-3'}>
@@ -10,7 +10,7 @@ export default function AboutChat({ photo, name }) {
                 </div>
                 <div className={'flex flex-col text-white items-start'}>
                     <p className={'font-[roboto] font-semibold text-xl '}>{name}</p>
-                    <p className={'text-gray-300'}>+3800682306088</p>
+                    <p className={'text-gray-300'}>{number}</p>
                 </div>
             </div>
             <div className={'h-[60%]'}>

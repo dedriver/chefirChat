@@ -72,12 +72,12 @@ export default function StartPage() {
                 {user ? (
                     <div className="text-center space-y-4">
                         <img
-                            src={userDataResp.photoURL || "https://via.placeholder.com/150"}
+                            src={userDataResp?.photoURL || "https://via.placeholder.com/150"}
                             alt="User"
                             className="w-20 h-20 mx-auto rounded-full mb-4"
                         />
                         <p className="text-lg text-gray-700 mb-4">
-                            You are logged in as {userDataResp.email || "unknown email"}
+                            You are logged in as {userDataResp?.email || "unknown email"}
                         </p>
                         <button
                             className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 focus:ring focus:ring-green-300"

@@ -13,10 +13,10 @@ export default function SideMenu() {
         console.log('loadingUserData' ,userDataResp);
     }, []);
     return (
-        <div>
+        <div >
             {activeMenu ? (
                 <div>
-                    <div className="bg-fone h-screen w-52 p-4 flex flex-col justify-between">
+                    <div className="bg-fone absolute  h-screen w-52 p-4 flex flex-col justify-between">
                         <div>
                             <button
                                 onClick={() => setActiveMenu(!activeMenu)}
@@ -75,15 +75,19 @@ export default function SideMenu() {
                             </button>
 
                             <div className="space-y-9 mt-6 text-white text-3xl mb-4">
-                                <div className={'border p-2 rounded-[100%] border-fone hover:border-castomGray hover:bg-castomGray'}>
-                                    <CiMenuBurger />
+                                <div
+                                    className={'border p-2 rounded-[100%] border-fone hover:border-castomGray hover:bg-castomGray'}>
+                                    <IoChatbubbleEllipsesOutline/>
                                 </div>
-                                <div className={'border p-2 rounded-[100%] border-fone hover:border-castomGray hover:bg-castomGray'}>
-                                <MdGroups />
+                                <div
+                                    className={'border p-2 rounded-[100%] border-fone hover:border-castomGray hover:bg-castomGray'}>
+                                    <MdGroups/>
                                 </div>
-                                    <div className={'border p-2 rounded-[100%] border-fone hover:border-castomGray hover:bg-castomGray'}>
-                                <IoChatbubbleEllipsesOutline />
-                                    </div>
+                                <div
+                                    className={'border p-2 rounded-[100%] border-fone hover:border-castomGray hover:bg-castomGray'}>
+                                    <FaRegUserCircle className="text-2xl mr-2"/>
+                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -27,3 +27,21 @@
     }
 }
 
+/* CSS */
+@media (max-width: 768px) {
+    .desktop-component {
+        display: none;
+    }
+    .mobile-component {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .desktop-component {
+        display: block;
+    }
+    .mobile-component {
+        display: none;
+    }
+}

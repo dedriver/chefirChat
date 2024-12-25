@@ -1,4 +1,4 @@
-export default function AllUserItem({ name, photo, lastMessage, click }) {
+export default function AllUserItem({ name, photo, lastMessage, click, count }) {
     return (
         <div
             className={"w-[100%] h-20 flex justify-between items-center px-4 text-gray-200"}
@@ -14,12 +14,19 @@ export default function AllUserItem({ name, photo, lastMessage, click }) {
                 </div>
                 <div>
                     <p className={"font-[roboto] font-semibold text-xl"}>{name}</p>
-                    <p>{lastMessage}</p>
+                    <p
+                        className={'overflow-hidden whitespace-nowrap text-ellipsis w-auto'}
+                        style={{
+                            maxWidth: '200px',
+                        }}
+                    >
+                        {lastMessage}
+                    </p>
                 </div>
             </div>
             <div className={"flex flex-col items-center space-y-1"}>
                 <p>13:12</p>
-                <p className={"bg-green-500 px-1 rounded-[3px]"}>5</p>
+                <p className={"bg-green-500 px-1 rounded-[3px]"}>{count}</p>
             </div>
         </div>
     );
