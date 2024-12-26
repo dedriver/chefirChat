@@ -5,7 +5,6 @@ import AllUserItem from "./AllUserItem.jsx";
 import AboutChat from "./AboutChat.jsx";
 import { addcurrentUser, setMyMessage } from "../../store/DataSlice.js";
 import { Timestamp } from "firebase/firestore";
-
 const DEFAULT_PHOTO_URL = "default-photo-url.jpg";
 
 const convertMessages = (messages) => {
@@ -25,6 +24,7 @@ export default function AllChats() {
     const [chatID, setChatID] = useState('');  // Використовуємо useState для chatID
 
     const currentUSERResp = useSelector((state) => state.dataSlice.currentUser);
+    const currentMessage= useSelector((state) => state.dataSlice.myMessage);
 
     useEffect(() => {
         if (userDataResp?.uid) {
@@ -33,8 +33,8 @@ export default function AllChats() {
     }, [userDataResp]);
 
     useEffect(() => {
-        console.log('chatResp' , chats)
-    }, [chats]);
+        console.log('currentMessage' ,currentMessage)
+    }, [currentMessage]);
 
     const createCurrendUSER = (user, chatID) => {
         dispatch(addcurrentUser(user));
@@ -53,6 +53,7 @@ export default function AllChats() {
             console.error("Chat not found for chatID:", chatID);
             // Тут ви можете додати логіку для обробки ситуації, коли чат не знайдений.
         }
+        console.log('sel' ,selectedChat );
     }, [chatID, chats]);
 
 
@@ -75,8 +76,10 @@ export default function AllChats() {
         })
         .filter(Boolean);
 
-    const totalMessageCount = filterUser.reduce((total, chat) => total + chat.messageCount, 0);
 
+
+    const totalMessageCount = filterUser.reduce((total, chat) => total + chat.messageCount, 0);
+console.log('fls' , filterUser)
     return (
         <div className="w-full h-screen bg-[#111111] flex flex-row">
             <div className="w-full md:w-1/2 h-screen flex flex-col space-y-4 overflow-auto custom-scrollbar overflow-y-scroll text-white p-4 items-center">
@@ -101,12 +104,9 @@ export default function AllChats() {
                 ))}
             </div>
             <div className="w-1/2 hidden md:block">{
-                filterUser.map((chat) => (
                     <AboutChat
-                        name={chat.name}
-                        photo={chat.photoURL}
+                        name={currentUSERResp.name}
                     />
-                ))
             }
             </div>
         </div>
